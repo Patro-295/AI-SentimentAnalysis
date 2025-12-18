@@ -1,0 +1,35 @@
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    .metrics-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .gauge-container {
+        width: 160px;
+    }
+    
+    .gauge, .gauge-body {
+        width: 160px;
+        height: 80px;
+    }
+    
+    .gauge-body {
+        height: 160px;
+    }
+    
+    .gauge-cover {
+        width: 130px;
+        height: 130px;
+        top: 15px;
+        left: 15px;
+    }
+}

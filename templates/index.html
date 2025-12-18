@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>AI Sentiment Analyzer</h1>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <p class="subtitle">Discover the emotional tone behind any text using advanced AI</p>
+        </header>
+
+        <main class="main-content">
+            <div class="app-grid">
+                <!-- Input Section -->
+                <div class="card input-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-edit"></i> Text Input</h2>
+                        <div class="header-actions">
+                            <button id="clear-btn" class="icon-btn" title="Clear text">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="textarea-wrapper">
+                        <textarea 
+                            id="text-input" 
+                            placeholder="Type or paste your text here..."
+                            rows="8"
+                            maxlength="1000"
+                        ></textarea>
+                        <div class="char-counter">
+                            <span id="char-count">0</span>/1000
+                        </div>
+                    </div>
+                    
+                    <div class="action-area">
+                        <button id="analyze-btn" class="analyze-btn">
+                            <span>Analyze Sentiment</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="sample-section">
+                        <p class="section-label">Or try an example:</p>
+                        <div class="sample-chips">
+                            <button class="chip positive" data-text="I absolutely love this product! It's amazing and works perfectly.">
+                                <span>😍 Positive</span>
+                            </button>
+                            <button class="chip negative" data-text="This is terrible. I'm very disappointed with the quality.">
+                                <span>😡 Negative</span>
+                            </button>
+                            <button class="chip neutral" data-text="The meeting is scheduled for 2 PM tomorrow.">
+                                <span>😐 Neutral</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="card results-card">
+                    <div id="placeholder-state" class="empty-state">
+                        <div class="empty-illustration">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Ready to Analyze</h3>
+                        <p>Enter text on the left to see detailed sentiment insights here.</p>
+                    </div>
+
+                    <div id="results-content" class="results-content hidden">
+                        <div class="sentiment-badge-wrapper">
+                            <div class="sentiment-badge" id="sentiment-badge">
+                                <i id="sentiment-icon-main" class="fas fa-smile"></i>
+                                <span id="sentiment-label-main">Positive</span>
+                            </div>
+                        </div>
+
+                        <div class="gauge-container">
+                            <div class="gauge">
+                                <div class="gauge-body">
+                                    <div class="gauge-fill" id="gauge-fill"></div>
+                                    <div class="gauge-cover">
+                                        <div class="gauge-value" id="polarity-display">0.0</div>
+                                        <div class="gauge-label">Polarity</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gauge-labels">
+                                <span>Negative</span>
+                                <span>Neutral</span>
+                                <span>Positive</span>
+                            </div>
+                        </div>
+
+                        <div class="metrics-row">
+                            <div class="metric-box">
+                                <div class="metric-header">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <span>Subjectivity</span>
+                                </div>
+                                <div class="metric-number" id="subjectivity-value">0.00</div>
+                                <div class="progress-mini">
+                                    <div class="progress-fill" id="subjectivity-fill"></div>
+                                </div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-header">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Confidence</span>
+                                </div>
+                                <div class="metric-number" id="confidence-value">0%</div>
+                                <div class="progress-mini">
+                                    <div class="progress-fill" id="confidence-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- History Section -->
+                        <div class="history-section">
+                            <div class="history-header">
+                                <h4>Recent Analysis</h4>
+                                <button id="clear-history" class="text-btn">Clear</button>
+                            </div>
+                            <div id="history-list" class="history-list">
+                                <!-- History items will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+        <footer class="footer">
+            <p>Powered by TextBlob & Flask | Built with ❤️ for AI enthusiasts</p>
+        </footer>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Analyzing sentiment...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
