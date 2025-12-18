@@ -5,7 +5,6 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-2.0%2B-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![VADER](https://img.shields.io/badge/NLTK-VADER-green?style=for-the-badge&logo=python&logoColor=white)](https://www.nltk.org/_modules/nltk/sentiment/vader.html)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 <br />
 
@@ -15,8 +14,7 @@
 
 <br />
 
-![App Preview](https://via.placeholder.com/800x400.png?text=Add+Your+Application+Screenshot+Here)
-*(Replace this image with a screenshot of your beautiful dashboard)*
+![App Preview](https://via.placeholder.com/800x400.png?text=App+Preview+Snapshot)
 
 </div>
 
